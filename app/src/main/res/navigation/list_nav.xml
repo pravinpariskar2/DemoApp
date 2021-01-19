@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/list_nav"
+    app:startDestination="@id/matchListFrag">
+
+    <fragment
+        android:id="@+id/matchListFrag"
+        android:name="com.example.shadiapp.MatchList.MatchListFrag"
+        android:label="fragment_match_list"
+        tools:layout="@layout/fragment_match_list" >
+        <action
+            android:id="@+id/navigateToDetailPage"
+            app:destination="@id/detailPageFrag" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailPageFrag"
+        android:name="com.example.shadiapp.DetailPage.DetailPageFrag"
+        android:label="fragment_detail_page"
+        tools:layout="@layout/fragment_detail_page" >
+        <action
+            android:id="@+id/navigateToListPage"
+            app:destination="@id/matchListFrag" />
+    </fragment>
+</navigation>
