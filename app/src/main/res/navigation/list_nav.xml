@@ -12,7 +12,11 @@
         tools:layout="@layout/fragment_match_list" >
         <action
             android:id="@+id/navigateToDetailPage"
-            app:destination="@id/detailPageFrag" />
+            app:destination="@id/detailPageFrag"
+            app:enterAnim="@anim/push_right_in"
+            app:exitAnim="@anim/push_right_out"
+            app:popEnterAnim="@anim/push_left_in"
+            app:popExitAnim="@anim/push_left_out"/>
     </fragment>
     <fragment
         android:id="@+id/detailPageFrag"
@@ -21,6 +25,10 @@
         tools:layout="@layout/fragment_detail_page" >
         <action
             android:id="@+id/navigateToListPage"
-            app:destination="@id/matchListFrag" />
+            app:destination="@id/matchListFrag"
+            app:enterAnim="@anim/push_right_in"
+            app:exitAnim="@anim/push_right_out"
+            app:popEnterAnim="@anim/push_left_in"
+            app:popExitAnim="@anim/push_left_out"/>
     </fragment>
 </navigation>

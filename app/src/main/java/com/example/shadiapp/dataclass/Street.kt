@@ -1,6 +1,6 @@
 package com.example.shadiapp.dataclass
 
-data class Street(
-    val name: String,
-    val number: Int
-)
+class Street {
+    var name: String = ""
+    var number = ""
+}

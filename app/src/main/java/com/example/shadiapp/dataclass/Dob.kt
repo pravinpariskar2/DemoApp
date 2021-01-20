@@ -1,6 +1,6 @@
 package com.example.shadiapp.dataclass
 
-data class Dob(
-    val age: Int,
-    val date: String
-)
+class Dob {
+    var age: Int = 0
+    var date: String = ""
+}

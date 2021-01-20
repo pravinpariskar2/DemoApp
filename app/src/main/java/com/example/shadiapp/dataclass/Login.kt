@@ -1,11 +1,11 @@
 package com.example.shadiapp.dataclass
 
-data class Login(
-    val md5: String,
-    val password: String,
-    val salt: String,
-    val sha1: String,
-    val sha256: String,
-    val username: String,
-    val uuid: String
-)
+class Login {
+    var md5: String = ""
+    var password: String = ""
+    var salt: String = ""
+    var sha1: String = ""
+    var sha256: String = ""
+    var username: String = ""
+    var uuid: String = ""
+}

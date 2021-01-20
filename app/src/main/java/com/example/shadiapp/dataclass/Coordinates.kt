@@ -1,6 +1,6 @@
 package com.example.shadiapp.dataclass
 
-data class Coordinates(
-    val latitude: String,
-    val longitude: String
-)
+class Coordinates {
+    var latitude: String = ""
+    var longitude: String = ""
+}

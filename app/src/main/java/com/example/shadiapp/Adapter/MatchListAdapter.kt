@@ -9,14 +9,18 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
 import com.bumptech.glide.request.transition.Transition
+import com.example.shadiapp.Main.MainActivity
 import com.example.shadiapp.R
 import com.example.shadiapp.dataclass.Result
 
 class MatchListAdapter(val context:Context, val matchList : List<Result>):RecyclerView.Adapter<MatchListAdapter.ViewHolder>() {
+    var mainActivity = context as MainActivity
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MatchListAdapter.ViewHolder {
         return ViewHolder(LayoutInflater.from(context).inflate(R.layout.row_list_item, parent, false))
     }
@@ -55,6 +59,12 @@ class MatchListAdapter(val context:Context, val matchList : List<Result>):Recycl
 
                     }
                 })
+            cv_list_view.id = position
+            cv_list_view.setOnClickListener {
+                mainActivity.selectedPosition = it.id
+//                Navigation.createNavigateOnClickListener(R.id.navigateToDetailPage)
+                it.findNavController().navigate(R.id.navigateToDetailPage)
+            }
         }
     }
 }

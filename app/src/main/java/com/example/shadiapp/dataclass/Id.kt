@@ -1,6 +1,6 @@
 package com.example.shadiapp.dataclass
 
-data class Id(
-    val name: String,
-    val value: String
-)
+class Id {
+    var name: String = ""
+    var value: String = ""
+}
