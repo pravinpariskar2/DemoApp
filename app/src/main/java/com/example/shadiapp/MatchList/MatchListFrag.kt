@@ -20,6 +20,7 @@ import com.example.shadiapp.R
 import com.example.shadiapp.dataclass.ResponseData
 import com.example.shadiapp.dataclass.Result
 import com.example.shadiapp.util.TableDetails
+import com.example.shadiapp.util.Utility
 import com.google.gson.Gson
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -71,7 +72,11 @@ class MatchListFrag : Fragment(),OnResponseListener,MatchListInterface {
             withContext(Dispatchers.Main){
                 println("--count---"+c)
                 if(c==0){
-                    matchListPresenter.hitApi()
+                    if(Utility.isNetworkConnected(requireContext())){
+                        matchListPresenter.hitApi()
+                    }else{
+                        Toast.makeText(requireContext(), "No Internet Connection", Toast.LENGTH_SHORT).show()
+                    }
                 }else{
                     matchListPresenter.getListFromDb()
                 }
