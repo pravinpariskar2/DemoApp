@@ -53,7 +53,13 @@ class DetailPageFrag : Fragment() ,View.OnClickListener,DetailPageInterface{
 
         val data = mainActivity.responseData!!.results[mainActivity.selectedPosition]
         tv_name.setText("${data.name.first} ${data.name.last}")
-        tv_gender.setText(data.gender)
+        if(data.gender.startsWith("M",ignoreCase = true)){
+            tv_gender.setText("Male")
+        }else if(data.gender.startsWith("F",ignoreCase = true)){
+            tv_gender.setText("Female")
+        }else{
+            tv_gender.setText(data.gender)
+        }
         tv_dob.setText("${data.dob.age}")
         setAcceptReject()
     }
