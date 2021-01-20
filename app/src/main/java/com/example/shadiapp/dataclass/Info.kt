@@ -1,8 +1,7 @@
 package com.example.shadiapp.dataclass
-
-data class Info(
-    val page: Int,
-    val results: Int,
-    val seed: String,
-    val version: String
-)
+ class Info{
+    var page: Int=0
+    var results: Int=0
+    var seed: String=""
+    var version: String=""
+}

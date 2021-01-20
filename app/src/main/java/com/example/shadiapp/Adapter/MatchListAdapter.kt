@@ -62,7 +62,6 @@ class MatchListAdapter(val context:Context, val matchList : List<Result>):Recycl
             cv_list_view.id = position
             cv_list_view.setOnClickListener {
                 mainActivity.selectedPosition = it.id
-//                Navigation.createNavigateOnClickListener(R.id.navigateToDetailPage)
                 it.findNavController().navigate(R.id.navigateToDetailPage)
             }
         }

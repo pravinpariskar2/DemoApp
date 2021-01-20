@@ -1,7 +1,7 @@
 package com.example.shadiapp.dataclass
 
-data class ResponseData(
-    var id:Int,
-    val info: Info,
-    val results: List<Result>
-)
+class ResponseData {
+    var id: Int = 0
+    val info = Info()
+    val results = ArrayList<Result>()
+}

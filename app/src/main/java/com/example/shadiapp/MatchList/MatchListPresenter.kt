@@ -73,6 +73,7 @@ class MatchListPresenter(val context: Context,val onResponseListner: OnResponseL
     }
 
     fun getListFromDb(){
+        var json = ResponseData()
         val dataSQLHelper = DataSqlHelper(context)
         val sqLiteDatabase: SQLiteDatabase
         sqLiteDatabase = dataSQLHelper.writableDatabase
@@ -81,14 +82,14 @@ class MatchListPresenter(val context: Context,val onResponseListner: OnResponseL
             cursor.moveToFirst()
             while (!cursor.isAfterLast) {
                 Utility.printMessage("Response JSON" + cursor.getString(cursor.getColumnIndex(TableDetails.JSON)))
-                val json = Gson().fromJson(cursor.getString(cursor.getColumnIndex(TableDetails.JSON)), ResponseData::class.java)
+                json = Gson().fromJson(cursor.getString(cursor.getColumnIndex(TableDetails.JSON)), ResponseData::class.java)
                 json.id = cursor.getInt(cursor.getColumnIndex(TableDetails.Match_LIST_ID))
-                matchListInterface.getResponse(json)
                 cursor.moveToNext()
             }
         }
         cursor.close()
         sqLiteDatabase.close()
         dataSQLHelper.close()
+        matchListInterface.getResponse(json)
     }
 }
